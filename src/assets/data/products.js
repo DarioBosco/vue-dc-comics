@@ -1,4 +1,4 @@
-export const products = [
+const products = [
 	{
 		text: 'Digital Comics',
 		category: 'buy-comics',
@@ -30,3 +30,5 @@ export const products = [
 		extension: '.png',
 	},
 ];
+
+export default products;

@@ -8,7 +8,7 @@
 		<div class="container-fluid bottom">
 			<div class="container">
 				<ul>
-					<li v-for="(product, index) in products" :key="index"></li>
+					<li v-for="(product, index) in products" :key="index">{{ product }}</li>
 				</ul>
 			</div>
 		</div>
@@ -36,7 +36,6 @@ export default {
 		height: 150px;
 		width: 100vw;
 		color: white;
-
 		.container {
 			width: 80%;
 			height: 100%;
