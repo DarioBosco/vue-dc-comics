@@ -19,7 +19,6 @@
 import links from '@/assets/data/links.js';
 export default {
 	name: 'Header',
-	activeElement: 0,
 	data() {
 		return {
 			links: links.headerLinks,
@@ -40,7 +39,7 @@ export default {
 <style scoped lang="scss">
 @import '../assets/styles/variables';
 .container-fluid {
-	width: 100vh;
+	width: 100vw;
 	.container {
 		width: 80%;
 		margin: 0 auto;
@@ -72,6 +71,7 @@ export default {
 					text-transform: uppercase;
 					margin-left: 25px;
 					border-bottom: 3px solid transparent;
+					user-select: none;
 
 					a {
 						text-decoration: none;

@@ -1,16 +1,27 @@
 <template>
-	<div class="container-fluid">
-		<div class="container">
-			<h2>{{ message }}</h2>
+	<div class="wrapper">
+		<div class="container-fluid top">
+			<div class="container">
+				<h2>{{ message }}</h2>
+			</div>
+		</div>
+		<div class="container-fluid bottom">
+			<div class="container">
+				<ul>
+					<li v-for="(product, index) in products" :key="index"></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import products from '@/assets/data/products.js';
 export default {
 	name: 'Products',
 	data: function() {
 		return {
+			products: products.products,
 			message: '--> Content goes here <---',
 		};
 	},
@@ -19,17 +30,28 @@ export default {
 
 <style scoped lang="scss">
 @import '../assets/styles/variables';
-.container-fluid {
-	height: 150px;
-	width: 100vw;
-	background-color: $secondary;
-	color: white;
-	.container {
-		height: 100%;
-		width: 80%;
-		margin: 0 auto;
-		display: flex;
-		align-items: center;
+
+.wrapper {
+	.container-fluid {
+		height: 150px;
+		width: 100vw;
+		color: white;
+
+		.container {
+			width: 80%;
+			height: 100%;
+			margin: 0 auto;
+			display: flex;
+			align-items: center;
+		}
+
+		&.top {
+			background-color: $secondary;
+		}
+
+		&.bottom {
+			background-color: $primary;
+		}
 	}
 }
 </style>
