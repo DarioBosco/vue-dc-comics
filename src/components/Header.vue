@@ -1,5 +1,3 @@
-//TODO: Aggiungere la classe "active" dinamica.
-
 <template>
 	<div class="header">
 		<div class="logo">
@@ -7,7 +5,7 @@
 		</div>
 		<nav>
 			<ul>
-				<li v-for="(link, index) in links" :key="index" :class="link.current ? 'active' : null">
+				<li v-for="(link, index) in links" :key="index" :class="link.current ? 'active' : null" @click="selectCurrentElement(link)">
 					<a :href="link.link">{{ link.text }}</a>
 				</li>
 			</ul>
@@ -16,13 +14,22 @@
 </template>
 
 <script>
-import headerLinks from '@/assets/data/links.js';
+import links from '@/assets/data/links.js';
 export default {
 	name: 'Header',
+	activeElement: 0,
 	data() {
 		return {
-			links: headerLinks.headerLinks,
+			links: links.headerLinks,
 		};
+	},
+	methods: {
+		selectCurrentElement(element) {
+			this.links.forEach((i) => {
+				i.current = false;
+			});
+			element.current = true;
+		},
 	},
 };
 </script>
