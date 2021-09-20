@@ -2,7 +2,7 @@ const headerLinks = [
 	{
 		text: 'Characters',
 		link: '#',
-		current: false,
+		current: true,
 	},
 	{
 		text: 'Comics',
@@ -186,4 +186,4 @@ const footerLinks = [
 	},
 ];
 
-export { headerLinks, footerLinks };
+export default { headerLinks, footerLinks };

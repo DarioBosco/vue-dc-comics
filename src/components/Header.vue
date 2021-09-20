@@ -1,3 +1,5 @@
+//TODO: Aggiungere la classe "active" dinamica.
+
 <template>
 	<div class="header">
 		<div class="logo">
@@ -5,7 +7,9 @@
 		</div>
 		<nav>
 			<ul>
-				<li v-for="(link, index) in links" :key="index"></li>
+				<li v-for="(link, index) in links" :key="index" :class="link.current ? 'active' : null">
+					<a :href="link.link">{{ link.text }}</a>
+				</li>
 			</ul>
 		</nav>
 	</div>
@@ -17,7 +21,7 @@ export default {
 	name: 'Header',
 	data() {
 		return {
-			links: headerLinks,
+			links: headerLinks.headerLinks,
 		};
 	},
 };
@@ -25,15 +29,35 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import '../assets/styles/variables';
 .header {
+	margin-top: 20px;
 	display: flex;
-}
-ul {
-	list-style: none;
-	background: orange;
-	li {
-		display: inline-block;
-		background: orangered;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	.logo {
+		height: 100%;
+	}
+	nav {
+		ul {
+			list-style: none;
+			li {
+				display: inline-block;
+				text-transform: uppercase;
+				margin-left: 25px;
+
+				a {
+					text-decoration: none;
+					color: inherit;
+				}
+
+				&.active {
+					color: $primary;
+					border-bottom: 5px solid $primary;
+				}
+			}
+		}
 	}
 }
 </style>
