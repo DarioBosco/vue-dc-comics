@@ -1,16 +1,19 @@
 <template>
 	<div id="app">
 		<Header />
+		<Products />
 	</div>
 </template>
 
 <script>
 import Header from './components/Header.vue';
+import Products from './components/Products.vue';
 
 export default {
 	name: 'App',
 	components: {
 		Header,
+		Products,
 	},
 };
 </script>
@@ -23,7 +26,5 @@ export default {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	color: #2c3e50;
-	width: 80%;
-	margin: 0 auto;
 }
 </style>
