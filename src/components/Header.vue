@@ -42,17 +42,31 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 100%;
+	height: 100px;
 	.logo {
 		height: 100%;
+		img {
+			width: 75%;
+			position: relative;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
 	}
 	nav {
+		height: 100%;
 		ul {
+			height: 100%;
+			display: flex;
+			align-items: center;
 			list-style: none;
 			li {
-				display: inline-block;
+				height: 100%;
+				display: flex;
+				align-items: center;
 				text-transform: uppercase;
 				margin-left: 25px;
+				border-bottom: 3px solid transparent;
 
 				a {
 					text-decoration: none;
@@ -61,7 +75,7 @@ export default {
 
 				&.active {
 					color: $primary;
-					border-bottom: 5px solid $primary;
+					border-bottom: 3px solid $primary;
 				}
 			}
 		}
