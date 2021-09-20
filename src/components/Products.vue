@@ -8,7 +8,14 @@
 		<div class="container-fluid bottom">
 			<div class="container">
 				<ul>
-					<li v-for="(product, index) in products" :key="index">{{ product }}</li>
+					<li v-for="(product, index) in products" :key="index">
+						<div class="product_image">
+							<img :src="require(`../assets/img/${product.category + product.item + product.extension}`)" />
+						</div>
+						<div class="product_text">
+							{{ product.text }}
+						</div>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -50,6 +57,21 @@ export default {
 
 		&.bottom {
 			background-color: $primary;
+			height: 100%;
+			ul {
+				height: 100%;
+				list-style: none;
+				li {
+					height: 100%;
+					display: inline-block;
+					.product-image {
+						height: 100%;
+						img {
+							height: 50%;
+						}
+					}
+				}
+			}
 		}
 	}
 }
