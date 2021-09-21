@@ -64,15 +64,13 @@ export default {
 			}
 		}
 		.image-box {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 50%;
+			width: 600px;
 			height: 100%;
-			overflow: hidden;
+			/* overflow: hidden; */
 			img {
-				max-width: 100%;
-				height: 160%;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
 			}
 		}
 	}
