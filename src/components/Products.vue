@@ -1,9 +1,7 @@
 <template>
 	<div class="wrapper">
 		<div class="container-fluid top">
-			<div class="container">
-				<h2>{{ message }}</h2>
-			</div>
+			<div class="container"></div>
 		</div>
 		<div class="container-fluid bottom">
 			<div class="container">
@@ -29,7 +27,6 @@ export default {
 	data: function() {
 		return {
 			products: products.products,
-			message: '--> Content goes here <---',
 		};
 	},
 };
