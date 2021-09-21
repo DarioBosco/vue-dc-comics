@@ -13,22 +13,43 @@
 				<img src="../assets/img/dc-logo-bg.png" alt="" />
 			</div>
 		</div>
+		<div class="footer-bottom">
+			<div class="content">
+				<div class="button">
+					<button>SIGN UP NOW!</button>
+				</div>
+				<div class="socials">
+					<div class="follow-us">FOLLOW US</div>
+					<ul>
+						<li v-for="(social, index) in socials" :key="index">
+							<div class="social-box">
+								<img :src="require(`../assets/${social.icon}`)" />
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
 import footerLinks from '@/assets/data/links.js';
+import socials from '@/assets/data/socials.js';
 export default {
 	name: 'Header',
 	data() {
 		return {
 			links: footerLinks.footerLinks,
+			socials: socials,
 		};
 	},
 };
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/styles/variables';
+@import '../assets/styles/mixins';
 .footer {
 	height: 500px;
 	width: 100vw;
@@ -71,6 +92,57 @@ export default {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
+			}
+		}
+	}
+	.footer-bottom {
+		width: 100vw;
+		height: 30%;
+		background-color: $secondary;
+
+		.content {
+			width: 80%;
+			height: 100%;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.button {
+				@include center(vertical);
+
+				button {
+					height: 50px;
+					width: 200px;
+					background: transparent;
+					border: 2px solid $primary;
+					color: white;
+					font-size: 1.2rem;
+					font-weight: bold;
+				}
+			}
+
+			.socials {
+				@include center(vertical);
+				.follow-us {
+					color: $primary;
+					font-size: 1.2rem;
+					font-weight: bold;
+				}
+
+				li {
+					display: inline-block;
+					margin-left: 20px;
+
+					.social-box {
+						height: 35px;
+						width: 35px;
+
+						img {
+							width: 100%;
+						}
+					}
+				}
 			}
 		}
 	}
