@@ -1,7 +1,9 @@
 <template>
 	<div class="wrapper">
-		<div class="container-fluid top">
-			<div class="container"></div>
+		<div class="display">
+			<div class="container comic-display">
+				<ComicCard v-for="(comic, index) in comics" :key="index" :comic="comic" />
+			</div>
 		</div>
 		<div class="container-fluid bottom">
 			<div class="container">
@@ -22,11 +24,19 @@
 
 <script>
 import products from '@/assets/data/products.js';
+import comics from '@/assets/data/dc-comics.json';
+import ComicCard from './ComicCard.vue';
 export default {
 	name: 'Products',
+	components: {
+		ComicCard,
+	},
+
 	data: function() {
 		return {
 			products: products.products,
+			comics: comics,
+			ComicData: comics,
 		};
 	},
 };
@@ -37,16 +47,20 @@ export default {
 @import '../assets/styles/mixins';
 
 .wrapper {
+	.display {
+		width: 100%;
+		background-color: $secondary;
+		color: white;
+		.comic-display {
+			@include center(both);
+			flex-wrap: wrap;
+			padding: 50px 0;
+		}
+	}
 	.container-fluid {
 		height: 150px;
 		width: 100vw;
 		color: white;
-		.container {
-			width: 80%;
-			height: 100%;
-			margin: 0 auto;
-			@include center(vertical);
-		}
 
 		&.top {
 			background-color: $secondary;
@@ -81,6 +95,13 @@ export default {
 				}
 			}
 		}
+	}
+
+	.container {
+		width: 80%;
+		height: 100%;
+		margin: 0 auto;
+		@include center(vertical);
 	}
 }
 </style>
